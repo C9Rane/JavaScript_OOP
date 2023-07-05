@@ -71,40 +71,57 @@ class Calculator {
     }
   
     add(a, b = this.result) {
-      this.result = a + b;
+      if (b == undefined){
+        this.result += a;
+      } else {
+        this.result = a + b;
+      }  
+      
       return this.result;
     }
   
     subtract(a, b = this.result) {
-      this.result = a - b;
-      return this.result;
+        if (b == undefined){
+            this.result -= a;
+            } else {
+            this.result = a - b;
+            } 
+        return this.result;
     }
   
     multiply(a, b = this.result) {
-      this.result = a * b;
-      return this.result;
+        if (b == undefined){
+            this.result *= a;
+          } else {
+            this.result = a * b;
+          } 
+        return this.result;
     }
   
     divide(a, b = this.result) {
-      if (b === 0) {
-        return null;
-      }
-      this.result = a / b;
-      return this.result;
+        if (b == undefined) {
+            if (a == undefined){
+                return null;
+            } else {
+                this.resuult = a / b;
+                return this.result;
+            }
+          }
+        }
     }
   
-    displayResult() {
+    displayResult();{
       console.log(`Result: ${this.result}`);
     }
-  }
+  
 
   const calcTest = new Calculator();
-  console.log(calcTest.result);
+  calcTest.displayResult();
   calcTest.add(5, 1);
-  console.log(calcTest.result);
+  calcTest.displayResult();
   calcTest.subtract(5, 1);
-  console.log(calcTest.result);
+  calcTest.displayResult();
   calcTest.multiply(5, 2);
-  console.log(calcTest.result);
+  calcTest.displayResult();
   calcTest.divide(5, 0);
-  console.log(calcTest.result);
+  calcTest.displayResult();
